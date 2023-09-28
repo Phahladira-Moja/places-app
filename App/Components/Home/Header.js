@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   },
   searchBar: {
     borderWidth: 1,
-    borderColor: Colors.blank,
+    borderColor: Colors.BLACK,
     padding: 15,
     borderRadius: 25,
     paddingLeft: 10,
