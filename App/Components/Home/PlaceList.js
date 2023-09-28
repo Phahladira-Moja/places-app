@@ -8,7 +8,7 @@ const PlaceList = ({ placeList }) => {
   const navigator = useNavigation();
 
   const onPlaceClick = (item) => {
-    navigator.navigate("place-detail");
+    navigator.navigate("place-detail", { place: item });
   };
 
   return (

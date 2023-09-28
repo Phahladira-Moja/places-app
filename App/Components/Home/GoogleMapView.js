@@ -6,7 +6,6 @@ import PlaceMarker from "./PlaceMarker";
 
 const GoogleMapView = ({ placeList }) => {
   const [mapRegion, setMapRegion] = useState({});
-
   const { location, setLocation } = useContext(UserLocationContext);
 
   useEffect(() => {
@@ -33,18 +32,22 @@ const GoogleMapView = ({ placeList }) => {
         Top Near By Places
       </Text>
       <View style={styles.container}>
-        <MapView
-          style={styles.map}
-          provider={PROVIDER_GOOGLE}
-          showsUserLocation={true}
-          region={mapRegion}
-        >
-          <Marker title="You" coordinate={mapRegion} />
+        {location ? (
+          <MapView
+            style={styles.map}
+            provider={PROVIDER_GOOGLE}
+            showsUserLocation={true}
+            region={mapRegion}
+          >
+            <Marker title="You" coordinate={mapRegion} />
 
-          {placeList.map(
-            (item, index) => index <= 10 && <PlaceMarker item={item} />
-          )}
-        </MapView>
+            {placeList > 0 ??
+              placeList.map(
+                (item, index) =>
+                  index <= 4 && <PlaceMarker item={item} key={index} />
+              )}
+          </MapView>
+        ) : null}
       </View>
     </View>
   );
