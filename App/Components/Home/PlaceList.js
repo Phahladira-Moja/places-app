@@ -1,6 +1,7 @@
 import { View, Text, FlatList } from "react-native";
 import React from "react";
 import PlaceItem from "./PlaceItem";
+import PlaceItemBig from "./PlaceItemBig";
 
 const PlaceList = ({ placeList }) => {
   return (
@@ -17,7 +18,13 @@ const PlaceList = ({ placeList }) => {
       <FlatList
         data={placeList}
         scrollEnabled={false}
-        renderItem={({ item }) => <PlaceItem place={item} />}
+        renderItem={({ item, index }) =>
+          index % 4 == 0 ? (
+            <PlaceItemBig place={item} />
+          ) : (
+            <PlaceItem place={item} />
+          )
+        }
       />
     </View>
   );
