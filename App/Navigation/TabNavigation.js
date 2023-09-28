@@ -8,6 +8,7 @@ import FavoriteScreen from "../Screens/FavoriteScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import HomeNavigation from "./HomeNavigation";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,7 +21,7 @@ const TabNavigation = () => {
     >
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={HomeNavigation}
         options={{
           tabBarLabel: "Home",
           tabBarIcon: ({ color, size }) => (
