@@ -3,6 +3,7 @@ import axios from "axios";
 
 const MAPS_API_KEY = `${API_KEY}`;
 const BASE_URL = "https://maps.googleapis.com/maps/api/place";
+const PHOTO_BASE_URL = "https://maps.googleapis.com/maps/api/place/photo";
 
 const nearByPlaces = () =>
   axios.get(
@@ -15,6 +16,18 @@ const nearByPlaces = () =>
       MAPS_API_KEY
   );
 
+const getPlacesPhoto = (reference) => {
+  return (
+    PHOTO_BASE_URL +
+    "?maxwidth=400" +
+    "&photo_reference=" +
+    reference +
+    "&key=" +
+    MAPS_API_KEY
+  );
+};
+
 export default {
   nearByPlaces,
+  getPlacesPhoto,
 };
