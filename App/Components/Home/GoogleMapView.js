@@ -2,8 +2,9 @@ import { View, Text, StyleSheet, Dimensions } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { UserLocationContext } from "../../Context/UserLocationContext";
+import PlaceMarker from "./PlaceMarker";
 
-const GoogleMapView = () => {
+const GoogleMapView = ({ placeList }) => {
   const [mapRegion, setMapRegion] = useState({});
 
   const { location, setLocation } = useContext(UserLocationContext);
@@ -17,7 +18,7 @@ const GoogleMapView = () => {
         longitudeDelta: 0.0421,
       });
     }
-  }, []);
+  }, [location]);
 
   return (
     <View style={{ marginTop: 20 }}>
@@ -39,6 +40,10 @@ const GoogleMapView = () => {
           region={mapRegion}
         >
           <Marker title="You" coordinate={mapRegion} />
+
+          {placeList.map(
+            (item, index) => index <= 10 && <PlaceMarker item={item} />
+          )}
         </MapView>
       </View>
     </View>

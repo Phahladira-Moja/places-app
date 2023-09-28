@@ -12,7 +12,6 @@ const HomeScreen = () => {
   const { location, setLocation } = useContext(UserLocationContext);
 
   useEffect(() => {
-    console.log(location);
     GetNearBySearchPlace("restaurant");
   }, []);
 
@@ -30,7 +29,7 @@ const HomeScreen = () => {
     <ScrollView style={{ padding: 20 }}>
       <SafeAreaView>
         <Header />
-        <GoogleMapView />
+        <GoogleMapView placeList={placeList} />
         <CategoryList
           setSelectedCategory={(value) => GetNearBySearchPlace(value)}
         />

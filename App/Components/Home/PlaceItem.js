@@ -5,8 +5,6 @@ import Colors from "../../Shared/Colors";
 import GlobalApi from "../../Services/GlobalApi";
 
 const PlaceItem = ({ place }) => {
-  console.log(place);
-  console.log("==============");
   return (
     <View
       style={{
