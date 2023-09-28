@@ -36,7 +36,7 @@ const PlaceDetail = () => {
   };
 
   return (
-    <ScrollView style={{ padding: 20, backgroundColor: Colors.WHITE, flex: 1 }}>
+    <View style={{ padding: 20, backgroundColor: Colors.WHITE, flex: 1 }}>
       <PlaceDetailItem
         place={place}
         onDirectionClick={() => onDirectionClick()}
@@ -71,7 +71,7 @@ const PlaceDetail = () => {
           Get Direction on Google Map
         </Text>
       </TouchableOpacity>
-    </ScrollView>
+    </View>
   );
 };
 

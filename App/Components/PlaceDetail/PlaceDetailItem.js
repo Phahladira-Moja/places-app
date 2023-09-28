@@ -4,6 +4,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import GlobalApi from "../../Services/GlobalApi";
 import { Ionicons } from "@expo/vector-icons";
+import Share from "../../Services/Share";
 
 const PlaceDetailItem = ({ place, onDirectionClick }) => {
   return (
@@ -94,7 +95,8 @@ const PlaceDetailItem = ({ place, onDirectionClick }) => {
             </Text>
           </TouchableOpacity>
 
-          <View
+          <TouchableOpacity
+            onPress={() => Share.SharePlace(place)}
             style={{
               direction: "flex",
               flexDirection: "row",
@@ -116,7 +118,7 @@ const PlaceDetailItem = ({ place, onDirectionClick }) => {
             >
               Share
             </Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
