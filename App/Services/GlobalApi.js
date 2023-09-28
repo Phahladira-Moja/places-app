@@ -31,7 +31,13 @@ const getPlacesPhoto = (reference) => {
   );
 };
 
+const searchByText = (searchText) =>
+  axios.get(
+    BASE_URL + "/textsearch/json?query=" + searchText + "&key=" + MAPS_API_KEY
+  );
+
 export default {
+  searchByText,
   nearByPlaces,
   getPlacesPhoto,
 };
