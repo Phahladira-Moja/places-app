@@ -8,12 +8,19 @@ import HorizontalLine from "./HorizontalLine";
 const PlaceItemBig = ({ place }) => {
   return (
     <View style={{ marginTop: 20 }}>
-      <Image
-        source={{
-          uri: GlobalApi.getPlacesPhoto(place?.photos[0]?.photo_reference),
-        }}
-        style={{ width: "100%", height: 130, borderRadius: 15 }}
-      />
+      {place?.photos ? (
+        <Image
+          source={{
+            uri: GlobalApi.getPlacesPhoto(place?.photos[0]?.photo_reference),
+          }}
+          style={{ width: "100%", height: 130, borderRadius: 15 }}
+        />
+      ) : (
+        <Image
+          source={require("./../../../assets/placeholder.jpg")}
+          style={{ width: "100%", height: 130, borderRadius: 15 }}
+        />
+      )}
       <Text
         numberOfLines={2}
         style={{

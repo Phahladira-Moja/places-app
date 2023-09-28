@@ -5,6 +5,8 @@ import Colors from "../../Shared/Colors";
 import GlobalApi from "../../Services/GlobalApi";
 
 const PlaceItem = ({ place }) => {
+  console.log(place);
+  console.log("==============");
   return (
     <View
       style={{
@@ -17,12 +19,19 @@ const PlaceItem = ({ place }) => {
         marginTop: 20,
       }}
     >
-      <Image
-        source={{
-          uri: GlobalApi.getPlacesPhoto(place?.photos[0]?.photo_reference),
-        }}
-        style={{ width: 100, height: 100, borderRadius: 15 }}
-      />
+      {place?.photos ? (
+        <Image
+          source={{
+            uri: GlobalApi.getPlacesPhoto(place?.photos[0]?.photo_reference),
+          }}
+          style={{ width: 100, height: 100, borderRadius: 15 }}
+        />
+      ) : (
+        <Image
+          source={require("./../../../assets/placeholder.jpg")}
+          style={{ width: 100, height: 100, borderRadius: 15 }}
+        />
+      )}
 
       <View style={{ flex: 1 }}>
         <Text

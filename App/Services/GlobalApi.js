@@ -5,13 +5,17 @@ const MAPS_API_KEY = `${API_KEY}`;
 const BASE_URL = "https://maps.googleapis.com/maps/api/place";
 const PHOTO_BASE_URL = "https://maps.googleapis.com/maps/api/place/photo";
 
-const nearByPlaces = () =>
+const nearByPlaces = (lat, lng, type) =>
   axios.get(
     BASE_URL +
       "/nearbysearch/json?" +
-      "&location=-33.8670522%2C151.1957362" +
+      "&location=" +
+      lat +
+      "," +
+      lng +
       "&radius=1500" +
-      "&type=restaurant" +
+      "&type=" +
+      type +
       "&key=" +
       MAPS_API_KEY
   );
